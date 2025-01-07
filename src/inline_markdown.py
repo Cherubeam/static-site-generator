@@ -33,6 +33,7 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
       if images == []:
         return [node]
       
+    pass
       
 
 
