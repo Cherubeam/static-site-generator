@@ -2,7 +2,7 @@ import unittest
 
 from extract_links_images_markdown import extract_markdown_images, extract_markdown_links
 
-class TestLinksImagesMarkdown(unittest.TestCase):
+class TestExtractLinksImagesMarkdown(unittest.TestCase):
   def test_images(self):
     text = "This is text with a ![rick roll](https://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
     matches = extract_markdown_images(text)

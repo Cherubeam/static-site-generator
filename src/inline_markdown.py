@@ -26,14 +26,24 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
 
   return new_nodes
 
-  def split_nodes_image(old_nodes):
-    new_nodes = []
-    for node in old_nodes:
-      images = extract_markdown_images(node)
-      if images == []:
-        return [node]
-      
-    pass
+def split_nodes_image(old_nodes):
+  new_nodes = []
+  for node in old_nodes:
+    images = extract_markdown_images(node)
+    if images == []:
+      return [node]
+    
+    #print(f"IMAGES:\n{images}")
+    #print(f"NODE INPUT:\n{node}")
+    
+    for i, image in enumerate(images):
+      (image_alt, image_link) = image
+      sections = node.split(f"![{image_alt}]({image_link})", 1)
+      print(f"SECTIONS:\nIndex: {i} | Section {sections}")
+
+      new_nodes.extend(split_nodes_image(sections))
+
+  return new_nodes
       
 
 

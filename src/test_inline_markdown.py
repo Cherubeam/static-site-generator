@@ -1,7 +1,8 @@
 import unittest
 
 from textnode import TextNode, TextType
-from inline_markdown import split_nodes_delimiter
+from inline_markdown import split_nodes_delimiter, split_nodes_image
+from extract_links_images_markdown import extract_markdown_images, extract_markdown_links
 
 class TestSplitNodesDelimiter(unittest.TestCase):
   def test_invalid_markdown_exception(self):
@@ -87,3 +88,14 @@ class TestSplitNodesDelimiter(unittest.TestCase):
       ],
       new_nodes,
     )
+
+class TestSplitImagesDelimiter(unittest.TestCase):
+  def test_images(self):
+    node_images = "This is text with an image ![ahle](https://www.ahle.dev) and ![to youtube](https://www.youtube.com/@bootdotdev)"
+    node_links = "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)"
+    node_text = "This is just text."
+
+    new_nodes = split_nodes_image([node_images])
+    print(f"TEST RESULTS:\n{new_nodes}")
+    self.assertListEqual(node_images, new_nodes)
+
