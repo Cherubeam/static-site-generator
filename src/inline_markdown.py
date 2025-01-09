@@ -32,16 +32,18 @@ def split_nodes_image(old_nodes):
     images = extract_markdown_images(node)
     if images == []:
       return [node]
-    
-    #print(f"IMAGES:\n{images}")
-    #print(f"NODE INPUT:\n{node}")
+
+    sections = []
     
     for i, image in enumerate(images):
       (image_alt, image_link) = image
-      sections = node.split(f"![{image_alt}]({image_link})", 1)
-      print(f"SECTIONS:\nIndex: {i} | Section {sections}")
+      if sections == []:
+        sections = node.split(f"![{image_alt}]({image_link})", 1)
+      else:
+        sections = sections[1].split(f"![{image_alt}]({image_link})", 1)
 
-      new_nodes.extend(split_nodes_image(sections))
+      new_nodes.append(TextNode(sections[0], TextType.TEXT))
+      new_nodes.append(TextNode(image_alt, TextType.LINK, image_link))
 
   return new_nodes
       
