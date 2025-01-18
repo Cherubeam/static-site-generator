@@ -8,9 +8,15 @@ def markdown_to_blocks(markdown):
   
   return block_strings
 
-def block_to_block_type(markdown):
+def block_to_block_type(markdown):    
   if markdown.startswith("#"):
-    return "heading"
+    for i in range(1, 6):
+      mdheading = f"{i * '#'} "
+      print(f"MDHEADING:\n{mdheading}")
+      if markdown.startswith(mdheading):
+        return "heading"
+ 
+    raise Exception("Invalid markdown heading")
   elif markdown.startswith("```") and markdown.endswith("```"):
     return "code"
   elif markdown.startswith(">"):
