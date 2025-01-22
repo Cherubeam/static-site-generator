@@ -49,3 +49,10 @@ def block_to_block_type(block):
     return block_type_paragraph
 
 
+def markdown_to_html_node(markdown):
+    split_blocks = markdown_to_blocks(markdown)
+
+    for block in split_blocks:
+        block_type = block_to_block_type(block)
+    
+    return
