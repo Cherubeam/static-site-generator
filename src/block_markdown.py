@@ -52,7 +52,10 @@ def block_to_block_type(block):
 def markdown_to_html_node(markdown):
   split_blocks = markdown_to_blocks(markdown)
 
+  collected_block_types = []
+
   for block in split_blocks:
     block_type = block_to_block_type(block)
+    collected_block_types.append(block_type)
     
-    pass
+  return collected_block_types
