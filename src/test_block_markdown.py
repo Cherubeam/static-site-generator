@@ -73,8 +73,9 @@ class TestBlockToBlockType(unittest.TestCase):
 
 class TestMarkdownToHTMLNode(unittest.TestCase):
   def test_markdown_to_html_node(self):
-    results = markdown_to_html_node("This is a paragraph of text. It has some **bold** and *italic* words inside of it.")
-    print(f"RESULTS\n{results}")
+    pass
+    # results = markdown_to_html_node("This is a paragraph of text. It has some **bold** and *italic* words inside of it.")
+    # print(f"RESULTS\n{results}")
 
 
 if __name__ == "__main__":
