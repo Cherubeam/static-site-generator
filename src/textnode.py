@@ -18,13 +18,13 @@ class TextNode:
 
   def __eq__(self, other):
     return (
-        self.text_type == other.text_type
-        and self.text == other.text
-        and self.url == other.url
+      self.text_type == other.text_type
+      and self.text == other.text
+      and self.url == other.url
     )
   
   def __repr__(self):
-    return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
+    return f"TextNode({self.text}, {self.text_type}, {self.url})"
 
 def text_node_to_html_node(text_node):
   match text_node.text_type:
