@@ -37,6 +37,7 @@ def copy_static_to_public():
   # For each listed item in content_static_dir check if it is a file or a directory
   ## If it is a file copy it in the current directory level
   ## Else, enter directory
+  #
 
 
   # try:
