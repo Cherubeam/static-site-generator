@@ -42,6 +42,7 @@ def copy_static_to_public():
 
   # try:
   #   shutil.copy(static_dir, public_dir)
+  # catch
 
 
 main()
